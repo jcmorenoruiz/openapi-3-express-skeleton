@@ -1,0 +1,47 @@
+version: "3.8"
+services:
+  # Database
+  mongo-openapi:
+    container_name: mongo-openapi
+    image: mongo:5.0.3
+    restart: always
+    env_file: ./.env
+    command: mongod --port 27022
+    stdin_open: true
+    tty: true
+    ports:
+      - "27022:27022"
+
+    environment:
+      # - MONGO_INITDB_ROOT_USERNAME=$MONGODB_USER
+      # - MONGO_INITDB_ROOT_PASSWORD=$MONGODB_PASSWORD
+      - MONGO_INITDB_USERNAME=$DB_USER
+      - MONGO_INITDB_PASSWORD=$DB_PASSWORD
+      - MONGO_INITDB_DATABASE=$DB_NAME
+
+    volumes:
+      - mongodb_data:/data/db
+      - ./tools/docker/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+
+  # Backend
+  openapi-be:
+    container_name: openapi-be
+    depends_on:
+      - mongo-openapi
+    restart: unless-stopped
+    build: .
+    env_file: ./.env
+    ports:
+      - "10034:10034"
+      # - "$$NODE_LOCAL_PORT:$$NODE_DOCKER_PORT"
+    working_dir: /app/openapi-be
+    volumes:
+      - './:/app/openapi-be'
+      - 'openapi-be_node_modules:/app/openapi-be/node_modules'
+
+    stdin_open: true
+    tty: true
+
+volumes:
+  mongodb_data:
+  openapi-be_node_modules: null

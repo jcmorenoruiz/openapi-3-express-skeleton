@@ -1,0 +1,25 @@
+x-eov-operation-handler: auth
+operationId: postLogin
+summary: User authentication.
+tags:
+  - Authentication
+requestBody:
+  description: Authentication data
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "#/components/schemas/Login"
+responses:
+  "200":
+    description: Success
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/SuccessResponse"
+  default:
+    description: Unexpected error
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/ErrorResponse"

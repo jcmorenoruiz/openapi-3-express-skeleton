@@ -1,0 +1,58 @@
+uuid:
+  in: path
+  name: uuid
+  required: true
+  schema:
+    type: string
+    format: uuid
+page:
+  in: query
+  name: page
+  required: false
+  schema:
+    type: integer
+    minimum: 0
+    default: 0
+  description: The number of items to skip before starting to collect the result set.
+pageSize:
+  in: query
+  name: pageSize
+  required: false
+  schema:
+    type: integer
+    minimum: 1
+    maximum: 100
+    default: 20
+  description: The numbers of items to return.
+sortDir:
+  in: query
+  name: sortDir
+  required: false
+  schema:
+    type: string
+    enum: ['ASC', 'DESC']
+    default: 'DESC'
+  description: The sort mode (ascendent or descendent) to use for order collected results
+sortBy:
+  in: query
+  name: sortBy
+  required: false
+  schema:
+    type: string
+    default: 'createdAt'
+  description: The field to use for order collected results
+search:
+  in: query
+  name: search
+  required: false
+  schema:
+    type: string
+  description: The text to search data in collection
+listType:
+  in: query
+  name: listType
+  required: false
+  schema:
+    type: string
+    enum: ['standard', 'filter', 'recentsOnly']
+    default: 'standard'

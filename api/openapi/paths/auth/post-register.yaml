@@ -1,0 +1,25 @@
+x-eov-operation-handler: auth
+operationId: postRegister
+summary: New user registration.
+tags:
+  - Authentication
+requestBody:
+  description: Registration data
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "#/components/schemas/Registration"
+responses:
+  "200":
+    description: Success
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/SuccessResponse"
+  default:
+    description: Unexpected error
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/ErrorResponse"

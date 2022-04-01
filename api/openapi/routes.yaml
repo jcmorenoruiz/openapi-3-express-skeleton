@@ -1,0 +1,38 @@
+#
+# --------------------------- Public (/api) endpoints ----------------------------------------
+#
+
+/info:
+  get:
+    $ref: './paths/get.info.yaml'
+
+# Auth
+/api/auth/register:
+  post:
+    $ref: './paths/auth/post-register.yaml'
+/api/auth/login:
+  post:
+    $ref: './paths/auth/post-login.yaml'
+/api/auth/password/forgot:
+  post:
+    $ref: './paths/auth/post-password-forgot.yaml'
+/api/auth/password/reset:
+  post:
+    $ref: './paths/auth/post-password-reset.yaml'
+
+#
+# ------------------------------ Protected (/api/authorized) endpoints ------------------------------
+#
+
+# Auth
+/api/authorized/auth/verify-email:
+  post:
+    $ref: './paths/auth/post-verify-email.yaml'
+/api/authorized/auth/change-password:
+  post:
+    $ref: './paths/auth/post-change-password.yaml'
+
+# User
+/api/authorized/user/info:
+  get:
+    $ref: './paths/user/get-user-info.yaml'

@@ -1,0 +1,88 @@
+ForgotPassword:
+  required:
+    - username
+  properties:
+    username:
+      $ref: '#/components/schemas/Username'   
+ResetPassword:
+  required:
+    - password
+    - token
+  properties:
+    password:
+      $ref: '#/components/schemas/Password'
+    token:
+      $ref: '#/components/schemas/VerificationToken'
+ChangePassword:
+  required:
+    - currentPassword
+    - newPassword
+  properties:
+    currentPassword:
+      $ref: '#/components/schemas/Password'
+    newPassword:
+      $ref: '#/components/schemas/Password'
+Registration:
+  required:
+    - username
+    - password
+    - email
+    - tosAccepted
+    - captcha
+  properties:
+    username:
+      $ref: '#/components/schemas/Username'     
+    password:
+      $ref: '#/components/schemas/Password'
+    email:
+      $ref: '#/components/schemas/Email'
+    captcha:
+      $ref: '#/components/schemas/Captcha'
+    tosAccepted:
+      type: boolean
+      description: Accepted terms and conditions
+Login:
+  required:
+   - username
+   - password
+   - captcha
+  properties:
+    username:
+      $ref: '#/components/schemas/Username'
+    password:
+      $ref: '#/components/schemas/Password'
+    captcha:
+      $ref: '#/components/schemas/Captcha'
+VerificationToken:
+  type: string
+  minLength: 32
+  maxLength: 32
+Username:
+  type: string
+  pattern: '^([a-zA-Z0-9_.-]){4,64}$'
+Password:
+  type: string
+  minLength: 8
+Email:
+  type: string
+  format: email
+  maxLength: 254
+Captcha:
+  type: string
+  minLength: 64
+  maxLength: 1024
+SuccessResponse:
+  required:
+    - message
+  properties:
+    message:
+      type: string
+ErrorResponse:
+  required:
+    - message
+    - code
+  properties:
+    message:
+      type: string
+    code:
+      type: string

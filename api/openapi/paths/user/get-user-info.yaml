@@ -1,0 +1,20 @@
+x-eov-operation-handler: user
+operationId: getInfo
+summary: Get Info
+security:
+  - Bearer: ['root-admin', 'user']
+tags:
+  - User
+responses:
+  '200':
+    description: Success
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/SuccessResponse'
+  default:
+    description: Unexpected error
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/ErrorResponse'

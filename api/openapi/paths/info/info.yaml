@@ -1,0 +1,60 @@
+# GET
+get:
+  x-eov-operation-handler: info
+  operationId: info
+  summary: Get Info
+  tags:
+    - Info
+  security:
+    - ApiKey: []
+  parameters:
+    - name: name
+      description: The name of the user
+      in: query
+      required: true
+      schema:
+        type: string
+        minLength: 3
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/UserResponse"
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+# POST
+post:
+  x-eov-operation-handler: info
+  operationId: post
+  summary: POST info
+  security:
+    - Bearer: ['user', 'admin']
+  tags:
+    - Info
+  requestBody:
+    description: Test body
+    x-name: data
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/UserResponse"
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'

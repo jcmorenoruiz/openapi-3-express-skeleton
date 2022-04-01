@@ -1,0 +1,12 @@
+SuccessResponse:
+  description: Success
+  content:
+    application/json:
+      schema:
+        $ref: "#/components/schemas/SuccessResponse"
+ErrorResponse:
+  description: General Error
+  content:
+    application/json:
+      schema:
+        $ref: "#/components/schemas/ErrorResponse"

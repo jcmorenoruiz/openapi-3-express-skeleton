@@ -1,0 +1,33 @@
+x-eov-operation-handler: auth
+operationId: postVerifyEmail
+summary: Email verification via code
+security:
+  - Bearer: ['user', 'business']
+tags:
+  - Authentication
+requestBody:
+  description: Verification data
+  required: true
+  content:
+    application/json:
+      schema:
+        required:
+          - code
+        properties:
+          code:
+            type: string
+            minLength: 6
+            maxLength: 6
+responses:
+  "200":
+    description: Success
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/SuccessResponse"
+  default:
+    description: Unexpected error
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/ErrorResponse"

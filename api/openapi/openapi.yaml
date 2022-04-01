@@ -1,0 +1,20 @@
+openapi: 3.0.3
+info:
+  version: 0.0.1
+  title: XSofta API
+servers:
+  - url: http://localhost:10030/
+  - url: https://localhost:10030/
+
+components:
+  securitySchemes:
+    $ref: './security-schemas.yaml'
+  schemas:
+    $ref: './schemas.yaml'
+  parameters:
+    $ref: './parameters.yaml'
+  responses:
+    $ref: './responses.yaml'
+
+paths:
+  $ref: './routes.yaml'

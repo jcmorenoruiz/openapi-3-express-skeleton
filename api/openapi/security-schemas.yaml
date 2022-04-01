@@ -1,0 +1,8 @@
+Bearer:
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+ApiKey:
+  type: apiKey
+  in: header
+  name: X-API-Key
