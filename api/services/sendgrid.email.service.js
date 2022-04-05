@@ -54,9 +54,8 @@ async function helperSendEmail (params) {
     'signature': params.signatureText || ''
   };
 
-  // TODO: Change noreply with myplane
   let msg = {
-    from: params.fromEmail || 'noreply<noreply@aaltobusiness.com>',
+    from: params.fromEmail || config.sendgrid.fromEmail,
     to: params.email,
     cc: params.emailCc,
     bcc: params.emailBcc,

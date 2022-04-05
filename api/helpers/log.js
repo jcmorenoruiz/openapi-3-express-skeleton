@@ -1,5 +1,5 @@
 'use strict';
-var globalNamespace = 'xsofta';
+var globalNamespace = 'openapi';
 
 function createLog(subNamespace) {
   function getStderrLogger(namespace) {

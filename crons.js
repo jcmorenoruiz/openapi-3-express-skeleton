@@ -1,9 +1,9 @@
 'use strict'
 
-process.title = 'xsofta';
+process.title = 'openapi-skeleton-crons';
 process.env.DEBUG =
   (process.env.DEBUG ? process.env.DEBUG + ', ' : '') +
-  'xsofta:debug:*, xsofta:info:*, xsofta:warn*, xsofta:error:*, xsofta:audit:*';
+  'openapi:debug:*, openapi:info:*, openapi:warn*, openapi:error:*, openapi:audit:*';
 
 const cron = require('node-cron');
 const i18n = require('i18n');

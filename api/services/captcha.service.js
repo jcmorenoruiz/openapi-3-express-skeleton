@@ -6,7 +6,7 @@ const ApiError = require('../../api/helpers/errors/api.error');
 const log = require('../../api/helpers/log')('services:captcha');
 const config = require('../../config/config');
 
-const verifyReCaptchaV3 = async (captcha, action = 'myplane_login', username = undefined) => {
+const verifyReCaptchaV3 = async (captcha, action = 'login', username = undefined) => {
 
   if (!config.google || !config.google.reCaptchaV3Key ||
     config.google.reCaptchaV3Key === 'Your google reCaptchaV3 key') {

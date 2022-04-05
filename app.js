@@ -1,8 +1,8 @@
 'use strict';
 
-process.title = 'xsofta';
+process.title = 'openapi-skeleton';
 process.env.DEBUG = (process.env.DEBUG ? process.env.DEBUG + ', ' : '') +
-  'xsofta:debug:*, xsofta:info:*, xsofta:warn*, xsofta:error:*, xsofta:audit:*';
+  'openapi:debug:*, openapi:info:*, openapi:warn*, openapi:error:*, openapi:audit:*';
 
 const express = require('express');
 const path = require('path');

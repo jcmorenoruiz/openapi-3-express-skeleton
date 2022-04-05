@@ -2,7 +2,7 @@
 # for local development only
 #
 
-# myplane-be
+# openapi-be
 FROM node:16.14.2-alpine
 EXPOSE 10034
 
