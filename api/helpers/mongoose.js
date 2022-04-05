@@ -11,9 +11,7 @@ const dbOptions = {
   connectTimeoutMS: 5000,
   user: config.mongodb.user,
   pass: config.mongodb.pass,
-  useFindAndModify: false,
-  useNewUrlParser: true,
-  useCreateIndex: true
+  useNewUrlParser: truers
 };
 
 function initListeners () {
@@ -27,8 +25,6 @@ function initListeners () {
 
 const loadModels = () => {
   log.debug('loadModels()');
-  mongoose.set('useFindAndModify', false);
-  mongoose.set('useUnifiedTopology', true);
 
   let files = glob.sync("./api/models/*.js", {});
   for (let file of files) {
