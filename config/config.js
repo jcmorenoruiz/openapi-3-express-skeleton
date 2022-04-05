@@ -42,5 +42,11 @@ module.exports = {
     algorithm: 'HS512',
     expiresIn: 60 * 60 * 24, // 1 day
     version: 1
+  },
+  sendgrid: {
+    apiKey: 'YOUR_SENDGRID_API_KEY',
+    fromEmail: 'YOUR_EMAIL_ADDRESS',
+    templateId: 'YOUR_SENDGRID_TEMPLATE_ID',
+    whitelabelImageUrl: 'YOUR_IMAGE_URL'
   }
 };
