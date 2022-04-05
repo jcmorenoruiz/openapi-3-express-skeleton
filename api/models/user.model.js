@@ -55,7 +55,7 @@ const UserSchema = new mongoose.Schema({
   locale: {
     type: String,
     enum: i18nConfig.localeList.map((lang) => lang.code),
-    default: 'fi-FI',
+    default: 'en-US',
   },
   resetPasswordToken: {
     type: String,

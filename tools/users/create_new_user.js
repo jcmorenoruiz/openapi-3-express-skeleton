@@ -10,28 +10,35 @@ const registrationService = require('../../api/services/registration.service');
 assert.ok(process.env.BO_USERNAME, 'Please specify a BO_USERNAME');
 assert.ok(process.env.EMAIL, 'Please specify an EMAIL');
 
-const params = {
-  username: process.env.BO_USERNAME,
-  password: process.env.BO_PASSWORD,
-  email: process.env.EMAIL,
-  role: process.env.ROLE || 'user'
-};
-
-log.info('inputParams: %O', params);
+const {
+  BO_USERNAME,
+  BO_PASSWORD,
+  EMAIL,
+  ROLE
+} = process.env;
 
 async function run() {
   await mongooseHelper.connect();
 
+  const params = {
+    username: BO_USERNAME,
+    email: EMAIL,
+    role: ROLE,
+    password: BO_PASSWORD
+  };
+
   let userId;
 
   switch (params.role) {
+    case 'user': userId = await registrationService.registerUser(params);
+      break;
     case 'root-admin': userId = await registrationService.registerAdmin(params);
       break;
 
-    default: throw new Error('Invalid role. Must be either: user or business or admin');
+    default: throw new Error('Invalid role. Must be either: user or root-admin');
   }
   
-  log.info(`User with role ${params.role} created successfully`);
+  log.info(`User with role ${ROLE} created successfully`);
 
   const user = await userService.fetchById(userId);
   log.info(user);
