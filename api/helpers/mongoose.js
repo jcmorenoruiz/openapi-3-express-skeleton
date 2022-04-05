@@ -52,7 +52,6 @@ const connect = async () => {
     // check if already connected: 0 = disconnected, 1 = connected, 2 = connecting, 3 = disconnecting
     if (mongoose.connection.readyState !== 1) {
       // do connection
-      console.log(dbOptions);
       await mongoose.connect(config.dbUri, dbOptions);
       log.info('mongoose.connect() connection to MongoDB %s successful', config.dbUri);
     }

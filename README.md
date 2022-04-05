@@ -13,7 +13,7 @@ Then attach into terminal: docker attach openapi-backend
 ### First initialization
 
 1) Start mongo container, if not running already..
-$ docker-compose up -d mongo
+$ docker-compose up -d mongo-openapi
 
 2) execute script to create application db user (matched with default secrets)
 $ docker exec mongo-openapi bash -c "sh ./docker-entrypoint-initdb.d/mongo-init.sh"

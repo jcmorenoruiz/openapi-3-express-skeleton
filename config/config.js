@@ -12,7 +12,6 @@ const {
   APP_PORT,
   APP_NAME
 } = process.env;
-console.log(process.env);
 
 module.exports = {
   serviceName: APP_NAME,
@@ -22,7 +21,7 @@ module.exports = {
   },
   baseUri: `http://localhost:${APP_PORT}`,
   corsWhitelist: ['http://localhost:4208', 'http://127.0.0.1:4208'],
-  dbUri: `mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}?authSource=admin`,
+  dbUri: `mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`,
   dbAuthenticatedUri: `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,
   appPort: APP_PORT,
   i18nConfig: {
