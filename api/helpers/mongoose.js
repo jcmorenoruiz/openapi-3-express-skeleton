@@ -10,8 +10,7 @@ const dbOptions = {
   keepAlive: 1,
   connectTimeoutMS: 5000,
   user: config.mongodb.user,
-  pass: config.mongodb.pass,
-  useNewUrlParser: truers
+  pass: config.mongodb.pass
 };
 
 function initListeners () {
