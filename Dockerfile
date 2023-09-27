@@ -3,7 +3,7 @@
 #
 
 # openapi-be
-FROM node:16.14.2-alpine
+FROM node:18.18.0-alpine
 EXPOSE 10034
 
 VOLUME ["/app/openapi-be"]
