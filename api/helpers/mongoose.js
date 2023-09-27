@@ -7,7 +7,6 @@ const config = require('../../config/config');
 const log = require('../../api/helpers/log')('helpers:mongoose');
 
 const dbOptions = {
-  keepAlive: 1,
   connectTimeoutMS: 5000,
   user: config.mongodb.user,
   pass: config.mongodb.pass

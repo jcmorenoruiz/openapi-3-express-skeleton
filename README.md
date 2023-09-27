@@ -22,7 +22,7 @@ $ docker exec mongo-openapi bash -c "sh ./docker-entrypoint-initdb.d/mongo-init.
 
 For empty database, you may also need to create your default backoffice administrator user. To do this, please login into container:
 
-$ docker exec -it openapi-backend /bin/sh
+$ docker exec -it openapi-be /bin/sh
 
 And execute the script:
 

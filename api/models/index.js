@@ -4,7 +4,6 @@ const config = require('../../config/config');
 const User = require('./user.model');
 
 const dbOptions = {
-  keepAlive: 1,
   connectTimeoutMS: 30000,
   user: config.mongodb.user,
   pass: config.mongodb.pass,
